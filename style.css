@@ -1,0 +1,136 @@
+:root {
+  --modal-color: rgba(255, 255, 255, 0.9);
+  --modal-color-1: rgba(255, 255, 255, 1);
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+  border-radius: 15px;
+}
+
+.d-none {
+  display: none;
+}
+
+.imageOfAStudent {
+  height: 310px;
+  object-fit: cover;
+  width: 100%;
+}
+
+div.students {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+  grid-gap: 2vw;
+  padding: 4vw 0;
+  background-color: #ccc;
+  border-radius: unset;
+}
+
+.justify-align-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.j-self-center {
+  justify-self: center;
+}
+
+.student {
+  width: 300px;
+  background-color: black;
+  color: white;
+  height: 55vh;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in, box-shadow 0.2s ease-in-out;
+  transform-origin: bottom;
+}
+
+
+.student:hover {
+  box-shadow: 2px 3px 5px darkgrey;
+  transform: translateY(-5px) scale(1.02);
+}
+
+.mainStudentInfo {
+  display: grid;
+  grid-template-rows: auto 10%;
+  height: 100%;
+  padding: 1.5vw;
+}
+
+
+
+.d-flex {
+  display: flex;
+}
+
+.modal {
+  position: absolute;
+  width: 300px;
+  height: 45vh;
+  background-color: var(--modal-color);
+  height: inherit;
+  animation: fullWidth 0.5s linear forwards 1;
+  align-self: flex-start;
+}
+
+
+@keyframes fullWidth {
+  0% {
+    height: 0;
+  }
+}
+
+
+.numbers {
+  display: flex;
+  align-self: flex-end;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  color: black;
+}
+
+h4.house {
+  color: #cccc;
+}
+
+
+button {
+  border: none;
+}
+
+button h4 {
+  padding: 2vw;
+  background-color: black;
+  color: white;
+  font-size: 2vw;
+}
+
+.slider {
+  height: inherit;
+  position: absolute;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  transform-origin: top;
+  align-self: flex-end;
+  animation: widthToZero 0.5s linear forwards 1;
+  background-color: var(--modal-color-1);
+}
+
+
+
+@keyframes widthToZero {
+  100% {
+    height: 0;
+  }
+}
