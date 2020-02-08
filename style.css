@@ -41,6 +41,12 @@ div.students {
   justify-self: center;
 }
 
+
+.justify-align-self-centered {
+  align-self: center;
+  justify-self: center;
+}
+
 .student {
   width: 300px;
   background-color: black;
@@ -76,7 +82,6 @@ div.students {
   position: absolute;
   width: 300px;
   height: 45vh;
-  background-color: var(--modal-color);
   height: inherit;
   animation: fullWidth 0.5s linear forwards 1;
   align-self: flex-start;
@@ -124,7 +129,6 @@ button h4 {
   transform-origin: top;
   align-self: flex-end;
   animation: widthToZero 0.5s linear forwards 1;
-  background-color: var(--modal-color-1);
 }
 
 
@@ -133,4 +137,75 @@ button h4 {
   100% {
     height: 0;
   }
+}
+
+
+.modalConent {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 30% 30% 40%;
+}
+
+.d-flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+h4.message {
+  color: black;
+  width: 60%;
+  justify-self: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.crest {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+}
+
+
+.modal[data-crest="slytherin"] {
+  --modal-color: #7a7a7ae1;
+  --modal-color-1: #7a7a7a;
+  background-color: var(--modal-color);
+
+}
+
+
+.modal[data-crest="slytherin"] .crest {
+  background-image: url(./img/sly.png);
+
+}
+
+.modal[data-crest="slytherin"] .slider {
+  background-image: url(./img/sly.png);
+  background-color: var(--modal-color-1);
+}
+
+
+
+
+.modalConent[data-crest="hufflepuff"] .crest {
+  background-image: url(./img/huff.png);
+}
+
+
+
+
+.modalConent[data-crest="gryffindor"] .crest {
+  background-image: url(./img/griff.png);
+
+}
+
+
+.modalConent[data-crest="ravenclaw"] .crest {
+  background-image: url(./img/raven.png);
+
 }

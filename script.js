@@ -21,6 +21,9 @@ function createStudentCards(student, data) {
   clnStudent.querySelector(".number").textContent = data.indexOf(student) + 1;
   const modal = clnStudent.querySelector(".modal");
 
+  clnStudent.querySelector(".message").textContent = `${student.fullname} belongs to ${student.house} house`
+
+
   clnStudent.querySelector(".mainStudentInfo").onclick = function () {
     showHideElement(modal, "d-flex", "d-none");
   };
