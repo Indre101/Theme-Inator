@@ -180,7 +180,7 @@ h4.message {
 
 
 .modal[data-crest="hufflepuff"] {
-  --modal-color: #372e29e8;
+  --modal-color: #372e29f6;
   --modal-color-1: #372e29;
   --secondary-text-color: #ecb939;
 
@@ -193,7 +193,7 @@ h4.message {
 }
 
 .modal[data-crest="gryffindor"] {
-  --modal-color: #d3a625e8;
+  --modal-color: #d3a625f6;
   --modal-color-1: #d3a625;
   --secondary-text-color: #740001;
 
@@ -207,7 +207,7 @@ h4.message {
 
 
 .modal[data-crest="ravenclaw"] {
-  --modal-color: #222f5be8;
+  --modal-color: #222f5bf6;
   --modal-color-1: #222f5b;
   --secondary-text-color: #946b2d;
 
