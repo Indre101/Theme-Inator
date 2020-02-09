@@ -113,10 +113,10 @@ button {
 }
 
 button h4 {
-  padding: 2vw;
+  padding: 3vh;
   background-color: black;
-  color: white;
-  font-size: 2vw;
+  color: var(--primary-text-color);
+  font-size: 1rem;
 
 }
 
@@ -248,4 +248,8 @@ h4.message {
   align-self: flex-end;
   animation: widthToZero 0.5s linear forwards 1;
   background-color: var(--modal-color-1);
+}
+
+.theme {
+  height: 2rem;
 }

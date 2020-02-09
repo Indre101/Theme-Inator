@@ -42,15 +42,17 @@ function createStudentCards(student, data) {
   clnStudent.querySelector(".nameOftheStudent").textContent = student.fullname;
   clnStudent.querySelector(".textStudentName").textContent = student.fullname
   clnStudent.querySelector(".number").textContent = i;
-  showStudentHouseAndModal(clnStudent, student)
 
+  showStudentHouseAndModal(clnStudent, student)
   clnStudent.querySelectorAll(".theme option").forEach(option => {
     if (option.value == student.house.toLowerCase()) {
       option.selected = true
     }
   })
+
   students.appendChild(clnStudent);
 }
+
 
 function showHideElement(element, classToAdd, classtoRemove) {
   element.classList.toggle(`${classToAdd}`);
