@@ -10,19 +10,16 @@ function init() {
       data.forEach(student => {
         createStudentCards(student, data);
         const themeOptions = document.querySelectorAll(".theme")
-        var themeOptionsArr = Array.from(themeOptions);
-
+        const themeOptionsArr = Array.from(themeOptions);
         themeOptions.forEach(option => {
           option.addEventListener("change", () => {
             data[themeOptionsArr.indexOf(option)].house = selected()
-            studentCard(document.querySelectorAll(".student")[themeOptionsArr.indexOf(option)], data[themeOptionsArr.indexOf(option)])
+            const selectedStudent = document.querySelectorAll(".student")[themeOptionsArr.indexOf(option)]
+
+            studentCard(selectedStudent, data[themeOptionsArr.indexOf(option)])
           });
         })
       });
-
-
-
-
     })
 }
 
@@ -35,11 +32,13 @@ function changeStudentHouse() {
   const students = document.querySelectorAll(".student")
 }
 
+
+let i = 0;
+
 function createStudentCards(student, data) {
   const clnStudent = studentTemplate.cloneNode(true);
-  // console.log(student.fullname);
-
   studentCard(clnStudent, student)
+  clnStudent.querySelector(".number").textContent = i;
 
   students.appendChild(clnStudent);
 }
@@ -50,13 +49,11 @@ function showHideElement(element, classToAdd, classtoRemove) {
 }
 
 
-let i = 0;
 
 function studentCard(clnStudent, student) {
   i++
   clnStudent.querySelector(".nameOftheStudent").textContent = student.fullname;
   clnStudent.querySelector(".house").textContent = student.house;
-  clnStudent.querySelector(".number").textContent = i;
   const modal = clnStudent.querySelector(".modal");
   modal.dataset.crest = student.house.toLowerCase();
   clnStudent.querySelector(".textStudentName").textContent = student.fullname
