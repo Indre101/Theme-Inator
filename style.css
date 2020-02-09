@@ -102,18 +102,29 @@ div.students {
 
 h4.house {
   color: #cccc;
+  text-transform: capitalize;
 }
 
 
 button {
   border: none;
+  transition: transform 1s;
+
 }
+
+
 
 button h4 {
   padding: 2vw;
   background-color: black;
   color: white;
   font-size: 2vw;
+
+}
+
+button:hover {
+  transform: skew(20deg);
+
 }
 
 
@@ -226,6 +237,7 @@ h4.message {
 
 .textStudentHouse {
   color: var(--secondary-text-color);
+  text-transform: capitalize;
 }
 
 
