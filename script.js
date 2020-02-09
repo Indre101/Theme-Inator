@@ -16,14 +16,11 @@ function init() {
       const themeOptions = document.querySelectorAll(".theme")
       const themeOptionsArr = Array.from(themeOptions);
       themeOptions.forEach(option => {
-
-
         option.addEventListener("change", () => {
           data[themeOptionsArr.indexOf(option)].house = selectedHouse()
-          const selectedStudent = document.querySelectorAll(".student")[themeOptionsArr.indexOf(option)]
-          showStudentHouseAndModal(selectedStudent, data[themeOptionsArr.indexOf(option)])
-          // data.forEach(e => console.log(e))
-
+          const selectedStudentCard = document.querySelectorAll(".student")[themeOptionsArr.indexOf(option)]
+          const selectedStudentObject = data[themeOptionsArr.indexOf(option)];
+          showStudentHouseAndModal(selectedStudentCard, selectedStudentObject);
         });
       })
     })
