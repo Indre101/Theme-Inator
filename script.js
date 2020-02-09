@@ -13,8 +13,12 @@ function init() {
     });
 }
 
+document.querySelector(".theme").addEventListener("change", selected);
 
+function selected() {
+  const selectedTheme = this.value; //... more code}
 
+}
 
 function createStudentCards(student, data) {
   const clnStudent = studentTemplate.cloneNode(true);
