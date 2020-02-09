@@ -9,21 +9,23 @@ function init() {
     .then(data => {
       data.forEach(student => {
         createStudentCards(student, data);
-
       });
       return data;
-    }).then(data => {
-      const themeOptions = document.querySelectorAll(".theme")
+    })
+    .then(data => {
+      const themeOptions = document.querySelectorAll(".theme");
       const themeOptionsArr = Array.from(themeOptions);
       themeOptions.forEach(option => {
         option.addEventListener("change", () => {
-          data[themeOptionsArr.indexOf(option)].house = selectedHouse()
-          const selectedStudentCard = document.querySelectorAll(".student")[themeOptionsArr.indexOf(option)]
+          data[themeOptionsArr.indexOf(option)].house = selectedHouse();
+          const selectedStudentCard = document.querySelectorAll(".student")[
+            themeOptionsArr.indexOf(option)
+          ];
           const selectedStudentObject = data[themeOptionsArr.indexOf(option)];
           showStudentHouseAndModal(selectedStudentCard, selectedStudentObject);
         });
-      })
-    })
+      });
+    });
 }
 
 function selectedHouse() {
@@ -31,31 +33,26 @@ function selectedHouse() {
   return selectedTheme.value;
 }
 
-let i = 0;
-
 function createStudentCards(student, data) {
-  i++
   const clnStudent = studentTemplate.cloneNode(true);
   clnStudent.querySelector(".nameOftheStudent").textContent = student.fullname;
-  clnStudent.querySelector(".textStudentName").textContent = student.fullname
-  clnStudent.querySelector(".number").textContent = i;
+  clnStudent.querySelector(".textStudentName").textContent = student.fullname;
+  clnStudent.querySelector(".number").textContent = data.indexOf(student) + 1;
 
-  showStudentHouseAndModal(clnStudent, student)
+  showStudentHouseAndModal(clnStudent, student);
   clnStudent.querySelectorAll(".theme option").forEach(option => {
     if (option.value == student.house.toLowerCase()) {
-      option.selected = true
+      option.selected = true;
     }
-  })
+  });
 
   students.appendChild(clnStudent);
 }
-
 
 function showHideElement(element, classToAdd, classtoRemove) {
   element.classList.toggle(`${classToAdd}`);
   element.classList.toggle(`${classtoRemove}`);
 }
-
 
 function showStudentHouseAndModal(clnStudent, student) {
   clnStudent.querySelector(".house").textContent = student.house;
@@ -63,11 +60,11 @@ function showStudentHouseAndModal(clnStudent, student) {
   modal.dataset.crest = student.house.toLowerCase();
   clnStudent.querySelector(".textStudentHouse").textContent = student.house;
 
-  clnStudent.querySelector(".mainStudentInfo").onclick = function () {
+  clnStudent.querySelector(".mainStudentInfo").onclick = function() {
     showHideElement(modal, "d-flex", "d-none");
   };
 
-  clnStudent.querySelector(".close").onclick = function () {
+  clnStudent.querySelector(".close").onclick = function() {
     showHideElement(modal, "d-flex", "d-none");
   };
 }
