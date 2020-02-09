@@ -151,7 +151,7 @@ button:hover {
 
 h4.message {
   color: var(--primary-text-color);
-  width: 60%;
+  width: 70%;
   justify-self: center;
   margin: 0 auto;
   text-align: center;
@@ -166,7 +166,7 @@ h4.message {
 
 
 .modal[data-crest="slytherin"] {
-  --modal-color: #5d5d5de8;
+  --modal-color: #5d5d5df6;
   --modal-color-1: #5d5d5d;
   --secondary-text-color: #1a472a;
 }
