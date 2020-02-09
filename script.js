@@ -10,25 +10,12 @@ function init() {
       data.forEach(student => {
         createStudentCards(student, data);
         const themeOptions = document.querySelectorAll(".theme")
-        var arr = Array.from(themeOptions);
+        var themeOptionsArr = Array.from(themeOptions);
 
-        themeOptions.forEach(e => {
-          e.addEventListener("change", () => {
-
-            data[arr.indexOf(e)].house = selected()
-            console.log(data[arr.indexOf(e)]);
-            studentCard(document.querySelectorAll(".student")[arr.indexOf(e)], data[arr.indexOf(e)])
-
-            // student.house = selected();
-            // modal.dataset.crest = selected()
-            // a.textContent = selected();
-            // b.textContent = selected();
-            // console.log(e.parentElement);
-            // console.log(data[arr.indexOf(e)].house);
-            // console.log(document.querySelectorAll(".student"));
-
-            // console.log(e.parentElement);
-            // console.log(document.querySelectorAll(".student")[data.indexOf(student)]);
+        themeOptions.forEach(option => {
+          option.addEventListener("change", () => {
+            data[themeOptionsArr.indexOf(option)].house = selected()
+            studentCard(document.querySelectorAll(".student")[themeOptionsArr.indexOf(option)], data[themeOptionsArr.indexOf(option)])
           });
         })
       });
@@ -46,8 +33,6 @@ function selected() {
 
 function changeStudentHouse() {
   const students = document.querySelectorAll(".student")
-
-
 }
 
 function createStudentCards(student, data) {
@@ -65,10 +50,13 @@ function showHideElement(element, classToAdd, classtoRemove) {
 }
 
 
+let i = 0;
+
 function studentCard(clnStudent, student) {
+  i++
   clnStudent.querySelector(".nameOftheStudent").textContent = student.fullname;
   clnStudent.querySelector(".house").textContent = student.house;
-  // clnStudent.querySelector(".number").textContent = data.indexOf(student) + 1;
+  clnStudent.querySelector(".number").textContent = i;
   const modal = clnStudent.querySelector(".modal");
   modal.dataset.crest = student.house.toLowerCase();
   clnStudent.querySelector(".textStudentName").textContent = student.fullname
