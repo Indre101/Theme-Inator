@@ -9,16 +9,21 @@ function init() {
     .then(data => {
       data.forEach(student => {
         createStudentCards(student, data);
-        const themeOptions = document.querySelectorAll(".theme")
-        const themeOptionsArr = Array.from(themeOptions);
-        themeOptions.forEach(option => {
-          option.addEventListener("change", () => {
-            data[themeOptionsArr.indexOf(option)].house = selectedHouse()
-            const selectedStudent = document.querySelectorAll(".student")[themeOptionsArr.indexOf(option)]
-            showStudentHouseAndModal(selectedStudent, data[themeOptionsArr.indexOf(option)])
-          });
-        })
+
       });
+      return data;
+    }).then(data => {
+      const themeOptions = document.querySelectorAll(".theme")
+      const themeOptionsArr = Array.from(themeOptions);
+      themeOptions.forEach(option => {
+        option.addEventListener("change", () => {
+          data[themeOptionsArr.indexOf(option)].house = selectedHouse()
+          const selectedStudent = document.querySelectorAll(".student")[themeOptionsArr.indexOf(option)]
+          showStudentHouseAndModal(selectedStudent, data[themeOptionsArr.indexOf(option)])
+          // data.forEach(e => console.log(e))
+
+        });
+      })
     })
 }
 
