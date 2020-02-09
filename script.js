@@ -16,6 +16,8 @@ function init() {
       const themeOptions = document.querySelectorAll(".theme")
       const themeOptionsArr = Array.from(themeOptions);
       themeOptions.forEach(option => {
+
+
         option.addEventListener("change", () => {
           data[themeOptionsArr.indexOf(option)].house = selectedHouse()
           const selectedStudent = document.querySelectorAll(".student")[themeOptionsArr.indexOf(option)]
@@ -41,6 +43,12 @@ function createStudentCards(student, data) {
   clnStudent.querySelector(".textStudentName").textContent = student.fullname
   clnStudent.querySelector(".number").textContent = i;
   showStudentHouseAndModal(clnStudent, student)
+
+  clnStudent.querySelectorAll(".theme option").forEach(option => {
+    if (option.value == student.house.toLowerCase()) {
+      option.selected = true
+    }
+  })
   students.appendChild(clnStudent);
 }
 
