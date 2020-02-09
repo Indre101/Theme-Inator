@@ -108,7 +108,7 @@ h4.house {
 
 button {
   border: none;
-  transition: transform 1s;
+  transition: transform 0.5s;
 
 }
 
@@ -123,7 +123,7 @@ button h4 {
 }
 
 button:hover {
-  transform: skew(20deg);
+  transform: skew(-20deg);
 
 }
 
