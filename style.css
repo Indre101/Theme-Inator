@@ -1,6 +1,8 @@
 :root {
   --modal-color: rgba(255, 255, 255, 0.9);
   --modal-color-1: rgba(255, 255, 255, 1);
+  --primary-text-color: white;
+  --secondary-text-color: black;
 
 }
 
@@ -121,16 +123,6 @@ button h4 {
   font-size: 2vw;
 }
 
-.slider {
-  height: inherit;
-  position: absolute;
-  width: -webkit-fill-available;
-  width: -moz-available;
-  transform-origin: top;
-  align-self: flex-end;
-  animation: widthToZero 0.5s linear forwards 1;
-}
-
 
 
 @keyframes widthToZero {
@@ -156,7 +148,7 @@ button h4 {
 
 
 h4.message {
-  color: black;
+  color: var(--primary-text-color);
   width: 60%;
   justify-self: center;
   margin: 0 auto;
@@ -172,10 +164,10 @@ h4.message {
 
 
 .modal[data-crest="slytherin"] {
-  --modal-color: #7a7a7ae1;
-  --modal-color-1: #7a7a7a;
+  --modal-color: #1a472ae0;
+  --modal-color-1: #1a472a;
+  --secondary-text-color: #1a472a;
   background-color: var(--modal-color);
-
 }
 
 
@@ -184,17 +176,25 @@ h4.message {
 
 }
 
-.modal[data-crest="slytherin"] .slider {
-  background-image: url(./img/sly.png);
-  background-color: var(--modal-color-1);
+
+
+
+
+
+.modal[data-crest="hufflepuff"] {
+  --modal-color: #5d5d5de7;
+  --modal-color-1: #5d5d5d;
+
+  background-color: var(--modal-color);
+
 }
 
 
-
-
-.modalConent[data-crest="hufflepuff"] .crest {
+.modal[data-crest="hufflepuff"] .crest {
   background-image: url(./img/huff.png);
+
 }
+
 
 
 
@@ -208,4 +208,23 @@ h4.message {
 .modalConent[data-crest="ravenclaw"] .crest {
   background-image: url(./img/raven.png);
 
+}
+
+
+
+
+.textStudentHouse {
+  color: var(--secondary-text-color);
+}
+
+
+.slider {
+  height: inherit;
+  position: absolute;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  transform-origin: top;
+  align-self: flex-end;
+  animation: widthToZero 0.5s linear forwards 1;
+  background-color: var(--modal-color-1);
 }
