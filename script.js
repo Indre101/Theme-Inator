@@ -13,33 +13,29 @@ function init() {
         const themeOptionsArr = Array.from(themeOptions);
         themeOptions.forEach(option => {
           option.addEventListener("change", () => {
-            data[themeOptionsArr.indexOf(option)].house = selected()
+            data[themeOptionsArr.indexOf(option)].house = selectedHouse()
             const selectedStudent = document.querySelectorAll(".student")[themeOptionsArr.indexOf(option)]
-
-            studentCard(selectedStudent, data[themeOptionsArr.indexOf(option)])
+            showStudentHouseAndModal(selectedStudent, data[themeOptionsArr.indexOf(option)])
           });
         })
       });
     })
 }
 
-function selected() {
+function selectedHouse() {
   const selectedTheme = event.target;
   return selectedTheme.value;
 }
 
-function changeStudentHouse() {
-  const students = document.querySelectorAll(".student")
-}
-
-
 let i = 0;
 
 function createStudentCards(student, data) {
+  i++
   const clnStudent = studentTemplate.cloneNode(true);
-  studentCard(clnStudent, student)
+  clnStudent.querySelector(".nameOftheStudent").textContent = student.fullname;
+  clnStudent.querySelector(".textStudentName").textContent = student.fullname
   clnStudent.querySelector(".number").textContent = i;
-
+  showStudentHouseAndModal(clnStudent, student)
   students.appendChild(clnStudent);
 }
 
@@ -49,14 +45,10 @@ function showHideElement(element, classToAdd, classtoRemove) {
 }
 
 
-
-function studentCard(clnStudent, student) {
-  i++
-  clnStudent.querySelector(".nameOftheStudent").textContent = student.fullname;
+function showStudentHouseAndModal(clnStudent, student) {
   clnStudent.querySelector(".house").textContent = student.house;
   const modal = clnStudent.querySelector(".modal");
   modal.dataset.crest = student.house.toLowerCase();
-  clnStudent.querySelector(".textStudentName").textContent = student.fullname
   clnStudent.querySelector(".textStudentHouse").textContent = student.house;
 
   clnStudent.querySelector(".mainStudentInfo").onclick = function () {
